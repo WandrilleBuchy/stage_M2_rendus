@@ -4,7 +4,7 @@
 
 \documentclass[a4paper,12pt]{article}
 
-\usepackage{natbib}
+ \usepackage[sort&compress,numbers]{natbib}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -66,6 +66,9 @@
     left=2.5cm, right=2.5cm
 }
 \pagestyle{empty}
+
+\usepackage{changes}
+\newcommand{\Javier}[1]{\textcolor{purple}{#1}}
 
 \begin{document}
 
@@ -186,13 +189,17 @@ $(\mathbb{S}^1)^{12} := \mathbb{T}^{12}$, le tore de dimension 12.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{Schéma molécule ARN.png}
-    \caption{Schéma de nucléotides d'une molécule ARN}
+    \caption{Schéma de nucléotides d'une molécule ARN.}
     \label{fig:1}
 \end{figure}
 
-Au cours de la première partie de ce stage, deux grands objectifs ont été fixés. Le premier était d'évaluer, de comparer les méthodes de réduction de dimension déjà existantes et, si possible, de proposer une méthode qui semble la meilleure puis le deuxième qui était d'étudier les corrélations entre les différents angles de la molécule. 
+Au cours de la première partie de ce stage, deux grands objectifs ont été fixés. Le premier était d'évaluer, de comparer les méthodes de réduction de dimension déjà existantes et, si possible, de proposer une méthode qui semble la meilleure puis le deuxième qui était d'étudier les corrélations entre les différents angles de la molécule. \Javier{Explain what is the interest of the second part: in order to define better dimensionality reduction techniques, we need to understand the dependencies between the angular variables, so... }
+
+\Javier{I think the structure of the following sections is not very clear. I would write to sections (one for each of the objectives you mentioned above). Then, you can start with a subsection `Recherche bibliographique' inside each of the sections, then another call e.g. `methods` where you explain what tools/analyses did you use, and then `results` where you summarize the results (each big section has the same structure which is clearer). Also no need to separate the benchmark and the newer data sets into two different subsections, you can just explain the results once and say that the same results were found in two different data sets (no need to give more details here).}
 
 \section{Recherches bibliographiques}
+
+\Javier{I modifed the citation format to numbers: remove the parentheses and use only \cite{sargsyanGeoPCANewTool2012}.}
 
 La première tâche de ce stage était de se pencher sur les méthodes de réduction de dimension déjà existantes pour $\mathbb{T}^{12}$. En particulier parmi celles-ci lesquelles sont les plus utilisées, les plus faciles à implémenter ou encore les possibles familles de méthodes peu ou pas utilisées dans ce contexte spécifique. Cette recherche bibliographique a mené à 3 familles de méthodes qui semblaient pertinentes. Il existe déjà plusieurs articles faisant l'état de l'art dans ce contexte (\cite{nodehiRecentAdvancesPrincipal2026}) ou alors (\cite{pewseyRecentAdvancesDirectional2021}) pour ne citer qu'eux. La première famille est celle des PCA-like, très bien étudiée avec de nombreuses méthodes (\cite{nodehiRecentAdvancesPrincipal2026}) mais seulement le GeoPCA (\cite{sargsyanGeoPCANewTool2012}) et le T-PCA (\cite{eltznerTorusPrincipalComponent2018}) ont été retenus. La deuxième est la famille des pseudoangles en particulier les pseudoangles $\alpha$-$\zeta$ (\cite{eltznerTorusPrincipalComponent2018}) et $\eta$-$\theta$ (\cite{wadleyEvaluatingLearningRNA2007}). Enfin, le manque d'études sur les méthodes non-linéaires comme UMAP ou t-SNE dans ce contexte a motivé le choix de cette famille.
 
@@ -223,9 +230,12 @@ Enfin la dernière analyse menée a été sur les plus gros clusters des cluster
 
 \section{Étude de la corrélation entre les angles dihédraux}
 
-La deuxième partie est l'étude d'une éventuelle dépendance entre les angles. Pour cela, il a été choisi d'utiliser dans un premier temps les tests issus du transport optimal et en particulier avec la distance de Wasserstein entre les distributions des angles (\cite{peyreComputationalOptimalTransport2020}) utilisée dans le papier de \cite{gonzalez-delgadoTwosampleGoodnessoffitTests2023}. Plus précisement, il a été étudié les lois $P(X|Y=y)$ et $P(X)$ pour $X$ et $Y$ des variables aléatoires dans $\mathbb{S}^1$. L'objectif est de calculer la distance entre ces objets avec le transport optimal pour trancher si oui ou non une égalité des lois est imaginable. Les statistiques et p-values de ces tests ont été obtenus pour $\{y_k \in [5k, 5(k+1)] | k = 0,..., 71\}$, pour chaque angle, et chaque base. Cette analyse a un coût élevé en temps de calcul ce qui fait que des méthodes comme des tests par permutations ne sont pas envisageables. Etant donné le nombre de tests effectué, une correction de Bonferroni-Holm était indispensable sur les résultats. La significativité des résultats est encore en cours d'étude.
+\Javier{}
+
+La deuxième partie est l'étude d'une éventuelle dépendance entre les angles. Pour cela, il a été choisi d'utiliser dans un premier temps les tests issus du transport optimal et en particulier avec la distance de Wasserstein entre les distributions des angles (\cite{peyreComputationalOptimalTransport2020}) utilisée dans \deleted{le papier de} \cite{gonzalez-delgadoTwosampleGoodnessoffitTests2023}. \Javier{The following sentence is not very clear, try to write it more formally. Also use $\mathbb{P}$ for a probability, or you can use $\mathcal{L}(X)$ to denote the probability law of $X$ (saying so).} Plus précisement, il a été étudié les lois $P(X|Y=y)$ et $P(X)$ pour $X$ et $Y$ des variables aléatoires dans $\mathbb{S}^1$. L'objectif est de calculer la distance \added{de Wasserstein} entre ces objets \deleted{avec le transport optimal} pour trancher si \deleted{oui ou non} une égalité des lois est imaginable. Les statistiques et p-values de ces tests ont été obtenus pour $\{y_k \in [5k, 5(k+1)] | k = 0,..., 71\}$, \Javier{Replace the previous sentence saying only that you calculated the distance across a grid of values of $Y$, then computed the expected distance.} pour chaque angle, et chaque base. Cette analyse a un coût élevé en temps de calcul ce qui fait que des méthodes comme des tests par permutations ne sont pas envisageables. Etant donné le nombre de tests effectué, une correction de Bonferroni-Holm était indispensable sur les résultats. La significativité des résultats est encore en cours d'étude. \Javier{Maybe you can say that you have already computed all the $p$-values.}
 Il a été représenté les statistiques et p-values ajustées en fonction de $y_k$ et des p-values plus globales rendant compte de cette étude pour l'hypothèse $H_0 : \mathcal{P}_X = \mathcal{P}_Y$ $\forall x\subset X,\forall y\subset Y$.
 
+\Javier{Mention what are the next steps in the last two months: using the detected dependency structures to try to define new pseudo-angles that better account for the local RNA structure, trying to solve the limitations described in step 1.}
 
 \section{Conclusion}
 
@@ -237,6 +247,6 @@ Le premier objectif de ce stage était de faire un travail de validation sur les
 
 \newpage
 %\nocite{*}
-\bibliographystyle{apalike}
+\bibliographystyle{unsrtnat}
 \bibliography{StageM2}
 \end{document}
