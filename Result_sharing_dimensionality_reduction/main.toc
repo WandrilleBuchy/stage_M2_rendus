@@ -1,0 +1,12 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Goals of the validation}{2}{0}{1}
+\beamer@sectionintoc {2}{State-of-the-Art}{3}{0}{2}
+\beamer@subsectionintoc {2}{1}{Dimensionality reduction}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{$\eta $ - $\theta $ pseudo-angles}{4}{0}{2}
+\beamer@sectionintoc {3}{Results}{5}{0}{3}
+\beamer@sectionintoc {4}{$\eta $ - $\theta $ limitations}{6}{0}{4}
+\beamer@sectionintoc {5}{Goal of the dependency}{7}{0}{5}
+\beamer@subsectionintoc {5}{1}{Goal}{7}{0}{5}
+\beamer@subsectionintoc {5}{2}{Exemple of a representation}{8}{0}{5}
+\beamer@sectionintoc {6}{Results}{9}{0}{6}
+\beamer@sectionintoc {7}{Next steps}{10}{0}{7}
