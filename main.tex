@@ -47,7 +47,7 @@
 \begin{frame}{Goals}
 
     \begin{block}{Goal}
-        ($\alpha_1$, ... , $\alpha_K$) $\in \mathbb{T}^K$, $7 \leq K \leq 12$ $\rightarrow$ \text{Two-dimensional Space}
+        ($\alpha_1,\ldots, \alpha_K$) $\in \mathbb{T}^K$, $7 \leq K \leq 12$ $\rightarrow$ \text{Two-dimensional Space}
     \end{block}
 
     \vskip 0.5 cm
@@ -77,7 +77,7 @@
 
 \subsection{$\eta$ - $\theta$ pseudo-angles}
 
-\begin{frame}{$\eta$ - $\theta$ pseudo-angles}
+\begin{frame}{$\eta - \theta$ pseudo-angles}
 
     \begin{figure}[htb]
         \includegraphics[width=.8\textwidth]{Evaluating - Wadley.png}
@@ -120,6 +120,15 @@
     
 \end{frame}
 
+\begin{frame}{$\eta$ - $\theta$ limitations}
+
+    \begin{figure}[htb]
+        \includegraphics[width=.88\textwidth]{HDBSCAN_pseuo_T7_compars.png}
+    \end{figure}
+
+    $\rightarrow$ We got two clusters in the dense area in $\mathbb{T}^7$ but only one for the $\eta$ - $\theta$ method.
+    
+\end{frame}
 
 \section{Goal of the dependency}
 
@@ -130,7 +139,7 @@
     \begin{block}{Goal}
         For each pair of angles ($\alpha$, $\beta$), we want to test : \\
         \begin{center}
-            $H_0$ : $\alpha$$\Perp$$\beta$
+            $H_0$ : $\alpha\Perp\beta$
         \end{center}
     \end{block}
 
@@ -145,7 +154,7 @@
     \setbeamercolor{block body}{bg=gray!15}
     
     \begin{block}{Remark}
-        The classical test methods are not usable for $\mathbb{S}^1$ so we used an Optimal Transport based method.
+        Classical test methods are not well-suited for $\mathbb{S}^1$ so we used an Optimal Transport based method.
     \end{block}
     }
     
@@ -167,6 +176,16 @@
 
     \begin{figure}[htb]
         \includegraphics[width=.75\textwidth]{Matrix_Wasserstein_distance_ACC.png}
+    \end{figure}
+    
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{Results of the tests}
+
+    \begin{figure}[htb]
+        \includegraphics[width=1\textwidth]{Full_Matrix_Wasserstein_distance_ACC.png}
     \end{figure}
     
 \end{frame}
